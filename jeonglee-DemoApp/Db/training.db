@@ -1,14 +1,18 @@
+# Database file for StreamDevice TCP communication example
+# Record to send the query string via StreamDevice
 record(stringout, "$(P)$(R)Cmd")
 {
-    field(DESC, "Raw query")
-    field(SCAN, "Passive")
-    field(DTYP, "stream")
+    field(DESC, "Raw Query")      # Description of the record
+    field(SCAN, "Passive")        # Record only processes when explicitly written to
+    field(DTYP, "stream")         # Use StreamDevice device support
     field( OUT, "@training.proto sendRawQuery($(P)$(R)Cmd-RB.VAL) $(PORT)")
+    # Specify protocol file, protocol name, target PV for reply ($1), and Asyn Port name
 }
 
+# Record to receive the reply string read by StreamDevice
 record(stringin, "$(P)$(R)Cmd-RB")
 {
-    field(DESC, "Raw Query Readback")
-    field(SCAN, "Passive")
-    field(DTYP, "Soft Channel")
+    field(DESC, "Raw Query Readback")  # Description
+    field(SCAN, "Passive")             # Value is written by StreamDevice, not by scanning
+    field(DTYP, "Soft Channel")        # Standard software record type
 }
