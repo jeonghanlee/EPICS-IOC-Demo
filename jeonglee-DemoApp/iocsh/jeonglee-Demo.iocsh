@@ -1,0 +1,28 @@
+####################################################################################################
+############ START of jeonglee-Demo.iocsh ##############################################################
+#-- P         : PREFIX
+#-- PORT      :
+#-- IPADDR    :
+#-- DATABASE_TOP :
+#-- SHOWDEV   : [Default] #
+#-- ASYNTRACE : [Default] #
+#-- SCAN      : [Default] 1 second
+#-- PREC      : [Default] 3
+#--#################################################################################################
+#--#
+#--# Here is the example, one should modify according to your IOC application
+#--# Note that we mixed the variable names in somewhere (SCAN, PREC, PORT, P)
+#--#           we separated the variable names in DATABASE_TOP from .... i
+#--# Please make sure you use the proper variable name to match st.cmd, and your DB file.
+#--#
+#--# Configure port driver
+#-- MultiFunctionConfig((portName,        # The name to give to this asyn port driver
+#--                      uniqueID,        # For USB the serial number.  For Ethernet the MAC address or IP address.
+#--                      maxInputPoints,  # Maximum number of input points for waveform digitizer
+#--                      maxOutputPoints) # Maximum number of output points for waveform generator
+#MultiFunctionConfig("$(PORT)", "$(IPADDR=128.3.130.203)", 1, 1)
+#$(SHOWDEV=#--) measCompShowDevices()
+#$(ASYNTRACE=#--) asynSetTraceMask($(PORT), -1, ERROR|FLOW|DRIVER)
+#dbLoadRecords("$(DATABASE_TOP)/TC32.db", "P=$(P),PORT=$(PORT),SCAN=$(SCAN=1 second),PREC=$(PREC=3)")
+############ END of jeonglee-Demo.iocsh ################################################################
+####################################################################################################

@@ -1,0 +1,14 @@
+record(stringout, "$(P)$(R)Cmd")
+{
+    field(DESC, "Raw query")
+    field(SCAN, "Passive")
+    field(DTYP, "stream")
+    field( OUT, "@training.proto sendRawQuery($(P)$(R)Cmd-RB.VAL) $(PORT)")
+}
+
+record(stringin, "$(P)$(R)Cmd-RB")
+{
+    field(DESC, "Raw Query Readback")
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+}

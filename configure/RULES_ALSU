@@ -1,0 +1,6 @@
+.PHONY: conf
+
+conf:
+	@echo ">>> Please source setEpicsEnv.bash, if one wants to use this"
+	@echo ">>> EPICS_BASE=${EPICS_BASE} > $(TOP)/configure/RELEASE.local"
+	@echo "EPICS_BASE=${EPICS_BASE}" > $(TOP)/configure/RELEASE.local

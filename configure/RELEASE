@@ -1,0 +1,93 @@
+# RELEASE - Location of external support modules
+#
+# IF YOU CHANGE ANY PATHS in this file or make API changes to
+# any modules it refers to, you should do a "make rebuild" in
+# this application's top level directory.
+#
+# The EPICS build process does not check dependencies against
+# any files from outside the application, so it is safest to
+# rebuild it completely if any modules it depends on change.
+#
+# Host- or target-specific settings can be given in files named
+#  RELEASE.$(EPICS_HOST_ARCH).Common
+#  RELEASE.Common.$(T_A)
+#  RELEASE.$(EPICS_HOST_ARCH).$(T_A)
+#
+# This file is parsed by both GNUmake and an EPICS Perl script,
+# so it may ONLY contain definititions of paths to other support
+# modules, variable definitions that are used in module paths,
+# and include statements that pull in other RELEASE files.
+# Variables may be used before their values have been set.
+# Build variables that are NOT used in paths should be set in
+# the CONFIG_SITE file.
+
+# Variables and paths to dependent modules:
+MODULES = $(EPICS_BASE)/../modules
+#MYMODULE = $(MODULES)/my-module
+
+
+
+# If using the sequencer, point SNCSEQ at its top directory:
+
+
+#ALS_IOCSH = $(MODULES)/iocsh
+
+ASYN = $(MODULES)/asyn
+#SNCSEQ = $(MODULES)/seq
+#MODBUS = $(MODULES)/modbus
+#SNMP = $(MODULES)/snmp
+#STD = $(MODULES)/std
+CALC = $(MODULES)/calc
+#AUTOSAVE = $(MODULES)/autosave
+#RECCASTER = $(MODULES)/recsync
+#### STREAM = $(MODULES)/stream
+# ALS-U use "StreamDevice" as a directory name
+STREAM = $(MODULES)/StreamDevice
+#RETOOLS = $(MODULES)/retools
+#CAPUTLOG = $(MODULES)/caPutLog
+#### devIocStats : EPICS community iocStats
+#devIocStats = $(MODULES)/iocStats
+#### IOCSTATS : ALS specific iocStats
+#IOCSTATS = $(MODULES)/iocStatsALS
+#MEASCOMP = $(MODULES)/measComp
+#SSCAN=$(MODULES)/sscan
+#BUSY=$(MODULES)/busy
+#SCALER=$(MODULES)/scaler
+#MCA=$(MODULES)/mca
+#ETHER_IP=$(MODULES)/ether_ip
+#
+### ALS-U Site Specific Modules
+### VACUUM Modules
+#RGAMV2=$(MODULES)/rgamv2
+#UNIDRV=$(MODULES)/unidrv
+#QPC=$(MODULES)/qpc
+### Instrumentation
+#EVENTGENERATORSUP=$(MODULES)/eventGeneratorSup
+#BPMSUP=$(MODULES)/bpmSup
+### FEED for LLRF
+#FEED=$(MODULES)/feed
+### PSC Modules
+#PSCDRV=$(MODULES)/pscdrv
+### MOTION Modules
+#PMAC=$(MODULES)/pmac
+#
+
+### ALS-U Default Module
+PVXS=$(MODULES)/pvxs
+
+# EPICS_BASE should appear last so earlier modules can override stuff:
+EPICS_BASE = /home/jeonglee/epics/1.1.1/debian-12/7.0.7/base
+
+# Set RULES here if you want to use build rules from somewhere
+# other than EPICS_BASE:
+#RULES = $(MODULES)/build-rules
+
+#-- https://epics.anl.gov/tech-talk/2024/msg00460.php
+#-- When PVXS is included in RELEASE, then PVXS_MAJOR_VERSION will be defined
+#-- Here, we use the installed ALS-U EPICS Environment PVXS Version
+-include $(PVXS)/configure/CONFIG_PVXS_VERSION
+#-- These lines allow developers to override these RELEASE settings
+#-- without having to modify this file directly.
+-include $(TOP)/../RELEASE.local
+-include $(TOP)/../RELEASE.$(EPICS_HOST_ARCH).local
+-include $(TOP)/configure/RELEASE.local

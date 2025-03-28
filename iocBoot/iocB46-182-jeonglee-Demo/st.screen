@@ -1,0 +1,4 @@
+#!/bin/sh
+# cd "/vxboot/jeonglee-Demo/boot/iocBoot/iocB46-182-jeonglee-Demo"
+exec ./st.cmd
+

@@ -1,0 +1,15 @@
+
+ASG(DEFAULT){
+	RULE(1,READ)
+	RULE(1,WRITE)
+}
+
+ASG(Reserved){
+	RULE(1,READ)
+	RULE(0,WRITE)
+}
+
+ASG(CaputLog) {
+    RULE(1,READ)
+    RULE(1,WRITE,TRAPWRITE)
+}

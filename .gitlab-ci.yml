@@ -1,0 +1,23 @@
+---
+# Please check the site https://git.als.lbl.gov/alsu/ci
+# If IOC does need the site modules. create .sitmodules in $TOP folder
+#
+include:
+  - project: alsu/ci
+    ref: master          # branch name, tag name, Commit SHA 
+    file:
+      - 'workflow.yml'
+      - 'alsu-vars.yml'
+      - 'env-sitemodules.yml'
+      - 'debian12-epics.yml'
+      - 'rocky8-epics.yml'
+      - 'rocky9-epics.yml'
+      #- 'debian12-analyzers.yml'
+      #- 'rocky8-analyzers.yml'
+      #- 'rocky9-analyzers.yml'
+
+stages:
+  - build
+  - test
+  #- analyzers
+  #- deploy
