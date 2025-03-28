@@ -34,7 +34,7 @@ We will create two small bash scripts: one to launch the server (`tcpserver.bash
 
 **Recommendation**: Create these scripts in a dedicated `simulator` subdirectory within your main IOC project directory (e.g., `jeonglee-Demo/simulator/`) to keep things organized. Navigate into that directory before creating the files.
 
-```
+```bash
 # Example: Create and enter the simulator directory
 # Ensure you are in your main IOC project directory first (e.g., jeonglee-Demo)
 $ mkdir simulator
@@ -45,7 +45,7 @@ $ cd simulator
 
 Use your preferred text editor (vi, nano, emacs, etc.) to create the main server script:
 
-```
+```bash
 simulator$ vi tcpserver.bash
 ```
 
@@ -99,7 +99,7 @@ fi
 ```
 Save and close the `tcpserver.bash` file. Then, make it executable:
 
-```
+```bash
 # Allow the system to execute this script
 simulator$ chmod +x tcpserver.bash
 ```
@@ -107,7 +107,7 @@ simulator$ chmod +x tcpserver.bash
 * Create `connection_handler.sh`
 
 Create the script that handles the actual echo logic for each individual client connection:
-```
+```bash
 $ vi connection_handler.sh
 ```
 
@@ -136,7 +136,7 @@ done
 
 Save and close the `connection_handler.sh` file. And change it to be executable.
 
-```
+```bash
 # Allow the system (tcpsvd/socat) to execute this script
 simulator$ chmod +x connection_handler.sh
 ```
@@ -162,7 +162,7 @@ To start the simulator, you need to execute the `tcpserver.bash` script you crea
 * Navigate (`cd`) to the directory where you saved `tcpserver.bash` and `connection_handler.sh` (e.g., the simulator subdirectory within your IOC project).
 * Execute the server script using `./` (which tells the shell to run the script in the current directory)
 
-```
+```bash
 simulator$ ./tcpserver.bash
 ```
 * The script will print a message indicating which tool (`tcpsvd` or `socat`) it is using and confirming it's listening on the port (e.g., "Attempting to start tcpsvd echo server on 127.0.0.1:9399...").
@@ -175,7 +175,7 @@ simulator$ ./tcpserver.bash
 
 Before connecting your IOC, you can verify the server works using `socat` itself as a client. Open another new terminal window (leaving the server running in its own window). Use `socat` to connect standard input/output (`-`) to the server's TCP port:
 
-```
+```bash
 $ socat - TCP:localhost:9399
 ```
 
@@ -198,14 +198,17 @@ The server should immediately send the same line of text back via the socat conn
 
 While the client is connected and interacting, observe the terminal where the server (`./tcpserver.bash`) is running. You should see log messages (especially if `tcpsvd` is used) indicating connections starting and ending:
 
-```# Example Output (using tcpsvd)
+```bash
+# Example Output (using tcpsvd)
 simulator (master)$ bash tcpserver.bash 
 Attempting to start tcpsvd echo server on 127.0.0.1:9399...
 tcpsvd: info: listening on 127.0.0.1:9399, starting.
+
 # (Client connects...)
 tcpsvd: info: status 1/1
 tcpsvd: info: pid 14092 from 127.0.0.1
 tcpsvd: info: start 14092 localhost:127.0.0.1 ::127.0.0.1:52042
+
 # (Client sends 'First!', '123456', 'ByeBye!', handler echoes)
 
 # (Client disconnects...)
