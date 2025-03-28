@@ -10,8 +10,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          chsh -s /bin/bash $USER
-          cat /usr/local/setEnv
-          . /usr/local/setEnv
-          echo "EPICS_BASE:=${EPICS_BASE}" > configure/RELEASE.local
+          echo "EPICS_BASE:=/usr/local/epics/R7.0.7/base" > configure/RELEASE.local
           make
