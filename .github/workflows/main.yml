@@ -10,6 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
+          ls /usr/local/
           source /usr/local/setEnv
           echo "EPICS_BASE:=${EPICS_BASE}" > configure/RELEASE.local
           make
