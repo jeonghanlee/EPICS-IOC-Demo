@@ -11,4 +11,13 @@ jobs:
       - uses: actions/checkout@v4
       - run: |
           echo "EPICS_BASE:=/usr/local/epics/R7.0.7/base" > configure/RELEASE.local
+          make      
+  rocky-8:
+    runs-on: ubuntu-latest
+    container:
+      image: jeonghanlee/rocky8-epics
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          echo "EPICS_BASE:=/usr/local/epics/R7.0.7/base" > configure/RELEASE.local
           make
