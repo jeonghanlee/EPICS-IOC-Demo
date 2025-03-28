@@ -1,0 +1,15 @@
+name: Building
+on:
+  push:
+    branches: [ master ]
+jobs:
+  debian-12:
+    runs-on: ubuntu-latest
+    container:
+      image: jeonghanlee/debian12-epics
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          source /usr/local/setEnv
+          echo "EPICS_BASE:=${EPICS_BASE}" > configure/RELEASE.local
+          make
