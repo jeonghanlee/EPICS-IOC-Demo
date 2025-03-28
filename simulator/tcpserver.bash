@@ -14,15 +14,17 @@ SC_TOP="${SC_RPATH%/*}"
 
 PORT=9399
 
-if command -v tcpsvd &> /dev/null; then
+if command -v tcpsvd > /dev/null 2>&1;then
     # Only one connection is allowed
     # Concurrency -c 1 (default 30)
     printf "A simple TCP server on port $PORT..."
     tcpsvd -c 1 -vvE 127.0.0.1 "$PORT" ./connection_handler.sh
     printf "\n"
-elif command -v socat &> /dev/null; then
+elif command -v socat >/dev/null 2>&1; then
+    printf "tcpsvd not found. Attempting to start server on port $PORT using socat..."
     socat TCP-LISTEN:${PORT},reuseaddr,fork SYSTEM:'./connection_handler.sh'
 else
-    printf "Please install either of socat or tcpsvd in your system\n"
+    echo "Error: Neither tcpsvd nor socat found. Please install one of them."
+    exit 1
 fi
 
