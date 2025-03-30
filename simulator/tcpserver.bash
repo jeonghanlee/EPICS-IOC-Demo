@@ -1,12 +1,24 @@
 #!/usr/bin/env bash
 #
-# Simple TCP Echo Server Launcher
-# Tries tcpsvd first, then socat. Listens on localhost:PORT.
-# Executes connection_handler.sh for each connection.
+#  The program is free software: you can redistribute
+#  it and/or modify it under the terms of the GNU General Public License
+#  as published by the Free Software Foundation, either version 2 of the
+#  License, or any newer version.
 #
-# author  : Jeong Han Lee (Han)
-# email   : jeonglee@lbl.gov
-# version : 0.0.1
+#  This program is distributed in the hope that it will be useful, but WITHOUT
+#  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+#  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+#  more details.
+#
+#  You should have received a copy of the GNU General Public License along with
+#  this program. If not, see https://www.gnu.org/licenses/gpl-2.0.txt
+#
+#  Simple TCP Echo Server Launcher
+#  Tries tcpsvd first, then socat. Listens on localhost:PORT.
+#  Executes connection_handler.sh for each connection.
+#
+#  - author : Jeong Han Lee, Dr.rer.nat.
+#  - email  : jeonglee@lbl.gov
 
 PORT=9399 # Port matching the IOC configuration in st.cmd
 
@@ -25,7 +37,6 @@ if [[ ! -x "$HANDLER_SCRIPT" ]]; then
     exit 1
 fi
 
-
 if command -v tcpsvd > /dev/null 2>&1; then
     # tcpsvd: -c 1 limits to 1 concurrent connection (simulates some serial devices)
     # -vvE logs verbose messages and errors to stderr
@@ -42,6 +53,7 @@ elif command -v socat >/dev/null 2>&1; then
     printf "socat server exited.\n"
 else
     # Error if neither required tool is found
-    echo "Error: Neither tcpsvd nor socat found. Please install ipsvd or socat."
+    echo "Error: Neither tcpsvd nor socat found. Please install ucspi-tcp or socat."
     exit 1
 fi
+
