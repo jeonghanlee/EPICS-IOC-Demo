@@ -6,7 +6,7 @@ sudo apt install parallel
 
 
 ```shell
-iparallel ./tcpserver.bash ::: 9399 9400 9401
+parallel ./tcpserver.bash ::: 9399 9400 9401
 ```
 
 ```shell
