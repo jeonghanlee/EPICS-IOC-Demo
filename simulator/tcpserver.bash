@@ -20,16 +20,35 @@
 #  - author : Jeong Han Lee, Dr.rer.nat.
 #  - email  : jeonglee@lbl.gov
 
-PORT="$1" # Port matching the IOC configuration in st.cmd
+declare -g default_handler="connection_handler.sh"
+declare -g default_port="9399"
+
+PORT="$1";    # Port matching the IOC configuration in st.cmd
+HANDLER="$2";
+
+filter="handler.sh"
+
+if [[ "$PORT" =~ "$filter" ]]; then
+    HANDLER=$PORT;
+    PORT=$default_port
+fi
 
 if [ -z "$PORT" ]; then
-  PORT=9399
+  PORT=$default_port
+fi
+
+if [ -z "$HANDLER" ]; then
+  HANDLER="$default_handler"
 fi
 
 
 # Determine the directory where this script resides to reliably find the handler script
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-HANDLER_SCRIPT="${SCRIPT_DIR}/connection_handler.sh"
+HANDLER_SCRIPT="${SCRIPT_DIR}/${HANDLER}"
+
+printf "#----\n"
+printf " We are using the following connection handler : %s\n" "$HANDLER_SCRIPT"
+printf "#----\n"
 
 # Check if the handler script exists
 if [[ ! -f "$HANDLER_SCRIPT" ]]; then
