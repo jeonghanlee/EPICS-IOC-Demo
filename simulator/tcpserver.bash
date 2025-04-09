@@ -13,72 +13,95 @@
 #  You should have received a copy of the GNU General Public License along with
 #  this program. If not, see https://www.gnu.org/licenses/gpl-2.0.txt
 #
-#  Simple TCP Echo Server Launcher
+#  Robust TCP Server Launcher for Parallel Execution
 #  Tries tcpsvd first, then socat. Listens on localhost:PORT.
-#  Executes connection_handler.sh for each connection.
+#  Executes a specified or default connection handler script for each connection.
+#  Includes prefixed logging and basic signal trapping.
+#
+#  Usage: ./tcpserver.bash [PORT] [HANDLER_SCRIPT]
+#         ./tcpserver.bash [HANDLER_SCRIPT]  (uses default port)
+#         ./tcpserver.bash [PORT]            (uses default handler)
+#         ./tcpserver.bash                   (uses defaults for both)
 #
 #  - author : Jeong Han Lee, Dr.rer.nat.
 #  - email  : jeonglee@lbl.gov
 
-declare -g default_handler="connection_handler.sh"
-declare -g default_port="9399"
+# --- Defaults ---
+DEFAULT_HANDLER="connection_handler.sh" # Default if no handler specified
+DEFAULT_PORT="9399"                   # Default if no port specified
 
-PORT="$1";    # Port matching the IOC configuration in st.cmd
-HANDLER="$2";
+# --- Argument Parsing ---
+PORT="$1"    # First argument
+HANDLER="$2" # Second argument
 
-filter="handler.sh"
 
-if [[ "$PORT" =~ "$filter" ]]; then
-    HANDLER=$PORT;
-    PORT=$default_port
+if [[ "$PORT" == *handler.sh ]]; then
+    HANDLER="$PORT"
+    PORT="" # Will be set to default later if empty
 fi
 
+# Apply defaults if arguments were not provided or shifted
 if [ -z "$PORT" ]; then
-  PORT=$default_port
+  PORT="$DEFAULT_PORT"
 fi
 
 if [ -z "$HANDLER" ]; then
-  HANDLER="$default_handler"
+  HANDLER="$DEFAULT_HANDLER"
 fi
 
+# --- Logging Prefix (Defined after PORT is finalized) ---
+LOG_PREFIX="[Server $PORT PID $$]:"
 
-# Determine the directory where this script resides to reliably find the handler script
+# --- Signal Handling ---
+cleanup() {
+    printf "%s Exiting on signal.\n" "$LOG_PREFIX"
+    # Add any specific cleanup needed here, if necessary
+    exit 1 # Indicate non-standard exit
+}
+trap cleanup INT TERM QUIT # Catch Ctrl+C, kill, etc.
+
+# --- Find and Validate Handler Script ---
+# Determine the directory where this launcher script resides
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 HANDLER_SCRIPT="${SCRIPT_DIR}/${HANDLER}"
 
-printf "#----\n"
-printf " We are using the following connection handler : %s\n" "$HANDLER_SCRIPT"
-printf "#----\n"
+printf -- "#--------------------------------------------------\n"
+printf -- "# %s Starting TCP Server:\n" "$LOG_PREFIX"
+printf -- "#   Port   : %s\n" "$PORT"
+printf -- "#   Handler: %s\n" "$HANDLER_SCRIPT"
+printf -- "#--------------------------------------------------\n"
 
 # Check if the handler script exists
 if [[ ! -f "$HANDLER_SCRIPT" ]]; then
-    echo "Error: Cannot find connection_handler.sh in the script directory: ${SCRIPT_DIR}"
+    printf "%s Error: Cannot find handler script '%s' in the script directory: %s\n" "$LOG_PREFIX" "$HANDLER" "$SCRIPT_DIR"
     exit 1
 fi
 # Check if the handler script is executable
 if [[ ! -x "$HANDLER_SCRIPT" ]]; then
-    echo "Error: connection_handler.sh is not executable. Please run: chmod +x ${HANDLER_SCRIPT}"
+    printf "%s Error: Handler script '%s' is not executable. Please run: chmod +x %s\n" "$LOG_PREFIX" "$HANDLER_SCRIPT" "$HANDLER_SCRIPT"
     exit 1
 fi
 
+# --- Launch Server ---
+SERVER_CMD=""
 if command -v tcpsvd > /dev/null 2>&1; then
-    # tcpsvd: -c 1 limits to 1 concurrent connection (simulates some serial devices)
-    # -vvE logs verbose messages and errors to stderr
-    printf "Attempting to start tcpsvd echo server on 127.0.0.1:%s...\n" "$PORT"
-    tcpsvd -c 1 -vvE 127.0.0.1 "$PORT" "$HANDLER_SCRIPT"
-    printf "tcpsvd server exited.\n"
+    printf "%s Attempting to start using tcpsvd on 127.0.0.1:%s...\n" "$LOG_PREFIX" "$PORT"
+    # tcpsvd: -c 1 limits concurrency, -vvE logs verbosely to stderr
+    SERVER_CMD="tcpsvd -c 1 -vvE 127.0.0.1 \"$PORT\" \"$HANDLER_SCRIPT\""
 elif command -v socat >/dev/null 2>&1; then
-    # socat: TCP-LISTEN listens on the port
-    # reuseaddr allows quick restarts if the port was recently used
-    # fork handles each connection in a new process
-    # SYSTEM executes the handler script, passing connection via stdin/stdout
-    printf "tcpsvd not found. Attempting to start socat echo server on port %s...\n" "$PORT"
-    socat TCP-LISTEN:${PORT},reuseaddr,fork SYSTEM:"'$HANDLER_SCRIPT'"
-    printf "socat server exited.\n"
+    printf "%s tcpsvd not found. Attempting to start using socat on port %s...\n" "$LOG_PREFIX" "$PORT"
+    # socat: TCP-LISTEN, reuseaddr, fork, SYSTEM execution
+    # Note the quoting for SYSTEM command with variable path
+    SERVER_CMD="socat TCP-LISTEN:${PORT},reuseaddr,fork SYSTEM:'\"$HANDLER_SCRIPT\"'"
 else
-    # Error if neither required tool is found
-    echo "Error: Neither tcpsvd nor socat found. Please install ucspi-tcp or socat."
+    printf "%s Error: Neither tcpsvd nor socat found. Please install ucspi-tcp (ipsvd) or socat.\n" "$LOG_PREFIX"
     exit 1
 fi
 
-exit
+# Execute the selected server command
+eval "$SERVER_CMD"
+EXIT_CODE=$? # Capture exit code of tcpsvd/socat
+
+# --- Normal Exit Logging ---
+printf "%s Server command exited with code %d.\n" "$LOG_PREFIX" "$EXIT_CODE"
+exit $EXIT_CODE
