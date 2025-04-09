@@ -19,17 +19,17 @@
 #  - author : Jeong Han Lee, Dr.rer.nat.
 #  - email  : jeonglee@lbl.gov
 
-# Loop indefinitely while reading lines from the client connection (stdin)
-# 'IFS=' prevents stripping leading/trailing whitespace
-# '-r' prevents backslash interpretation
+# Loop indefinitely 
 while true; do
-  # Echo the received line back to the client (stdout), followed by a newline
   # Using printf is generally safer than echo for arbitrary data
+  # print the following format with randomly generator number 
+  # continously, per each second
+  #
   # CPS, 2, CPM, 2, uSv/hr, 0.01, SLOW
   
   cps=$((RANDOM % 1001))
   cpm=$((RANDOM % 101))
   rad=$(echo "scale=2; 1 / $cpm" | bc)
-  printf "CPS, %3d, CPM, %3d, uSv/hr, %.2f\n" "$cps" "$cpm" "$rad"
+  printf "CPS, %3d, CPM, %3d, uSv/hr, %.2f, SLOW\n" "$cps" "$cpm" "$rad"
   sleep 1
 done
