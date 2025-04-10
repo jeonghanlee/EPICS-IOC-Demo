@@ -16,12 +16,12 @@
 # - author : Jeong Han Lee, Dr.rer.nat.
 # - email  : jeonglee@lbl.gov
 #
-# This single script acts as a connection handler launched by tcpserver.bash.
-# IMPORTANT: It launches TWO independent loops in the background:
-# 1. A loop that reads client input and sends back responses (Query/Response).
-# 2. A loop that continuously streams simulated Geiger counter data.
-# Because both loops write to standard output concurrently, the connected
-# client will receive an INTERLEAVED mixture of both types of messages.
+#  This single script acts as a connection handler launched by tcpserver.bash.
+#  IMPORTANT: It launches TWO independent loops in the background:
+#  1. A loop that reads client input and sends back responses (Query/Response).
+#  2. A loop that continuously streams simulated Geiger counter data.
+#  Because both loops write to standard output concurrently, the connected
+#  client will receive an INTERLEAVED mixture of both types of messages.
 
 # --- Function for Query/Response Handling ---
 # This function processes a single command received from the client
@@ -96,6 +96,13 @@ while true ; do
         counts_this_minute=0
     fi
 
+    ######  Warning
+    # This fomular IS NOT completely right, since I don't care it seriously
+    # these numbers, so please don't use this information as "source of truth".
+    #
+    # Our goal is to make a simulator to generate a similar data format, which we can
+    # handle through EPICS Asyn and StreamDevice within our training IOC.
+    ######  Warning
     # 4. Calculate Dose Rate (uSv/hr)
     # Uses the 'cpm' value from the *last completed minute*.
     # 'bc' command is used for floating-point arithmetic (Bash handles integers only).
