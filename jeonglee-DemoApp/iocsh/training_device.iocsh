@@ -1,5 +1,5 @@
 ####################################################################################################
-############ START of training-device.iocsh ########################################################
+############ START of training_device.iocsh ########################################################
 #-- PREFIX         :
 #-- DEVICE         : 
 #-- DATABASE_TOP   :
@@ -23,15 +23,15 @@ drvAsynIPPortConfigure("$(PORT_NAME)", "$(HOST=127.0.0.1):$(PORT=9399)", 0, 0, 0
 #-- for long-term maintenance, it is often considered best practice to define port-specific
 #-- behavior like EOS explicitly in the st.cmd file using Asyn commands.
 #-- Input EOS (what character(s) mark the end of a message *received from* the device)
-asynOctetSetInputEos("$(ASYN_PORT_NAME)", 0, "\n")
+asynOctetSetInputEos("$(PORT_NAME)", 0, "\n")
 #-- Output EOS (what character(s) should be *appended to* messages *sent to* the device)
-asynOctetSetOutputEos("$(ASYN_PORT_NAME)", 0, "\n")
+asynOctetSetOutputEos("$(PORT_NAME)", 0, "\n")
 
-$(ASYNTRACE=#--)asynSetTraceMask($(ASYN_PORT_NAME), -1, ERROR|FLOW|DRIVER)
+$(ASYNTRACE=#--)asynSetTraceMask($(PORT_NAME), -1, ERROR|FLOW|DRIVER)
 
 #-- --- Load Database Records ---
 dbLoadRecords("$(DATABASE_TOP)/training.db", "P=$(PREFIX),R=$(DEVICE),PORT=$(PORT_NAME)")
 #-- --- End Record Load ---
 
-############ END of training-device.iocsh ##########################################################
+############ END of training_device.iocsh ##########################################################
 ####################################################################################################
