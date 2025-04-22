@@ -14,7 +14,7 @@
 #  this program. If not, see https://www.gnu.org/licenses/gpl-2.0.txt
 #
 #  Usage: ./tc_emulator.bash                (uses default port)
-#         ./tc_emulator.bash --port 12345   (uses 12345 port)
+#         ./tc_emulator.bash --port 9399    (uses 9399 port)
 #
 # - author : Jeong Han Lee, Dr.rer.nat.
 # - email  : jeonglee@lbl.gov
@@ -30,11 +30,16 @@ for cmd in socat bc mktemp; do
 done
 
 DEFAULT_PORT="9399"
+PORT=""
 
 # Parse command-line arguments for custom port
 while [[ $# -gt 0 ]]; do
   case $1 in
     --port)
+        if [[ -z "$2" || "$2" =~ ^-- ]]; then
+            printf "Error: --port requires a value.\nUsage: %s [--port PORT]\n" "$0"
+            exit 1
+        fi
         PORT="$2";
         shift 2
         ;;
@@ -44,6 +49,8 @@ while [[ $# -gt 0 ]]; do
         ;;
   esac
 done
+
+PORT="${PORT:-$DEFAULT_PORT}"
 
 SOCAT_LOG=$(mktemp)
 
