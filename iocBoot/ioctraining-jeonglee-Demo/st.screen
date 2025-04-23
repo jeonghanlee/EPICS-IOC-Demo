@@ -1,0 +1,4 @@
+#!/bin/sh
+# cd "/vxboot/jeonglee-Demo/boot/iocBoot/ioctraining-jeonglee-Demo"
+exec ./st.cmd
+

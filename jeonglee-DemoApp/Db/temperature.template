@@ -1,0 +1,9 @@
+record(ai,"$(P)$(R)CH$(CH)")
+{
+    field(DESC, "TC temperature at Channel $(CH)")
+    field(DTYP, "stream")
+    field( INP, "@tc32.proto get_temp($(CH)) $(PORT)")
+    field( EGU, "degC")
+    field(SCAN, "I/O Intr")
+}
+

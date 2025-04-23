@@ -110,11 +110,26 @@ function generate_temp
   printf "%s\n" "$new_temp"
 }
 
+previous_time=$(date +%s.%N)
 # Main loop: update and send temperature readings forever
+#
 while true; do
   for i in $(seq 1 32); do
+#    Each generate_temp takes around between 0.006 sec and 0.015 seconds
+#    Each Channel should be updated around between 0.192 and 0.48 seconds
+#    So, we expect to see that time difference will be between +0.2 and +0.5 via
+#    camonitor -t sI PVNAME
+#    PVNAME         +0.410798 17.5535
+#    PVNAME         +0.366885 18.2611
+#    PVNAME         +0.346312 17.7282
+#    PVNAME         +0.413986 18.1144
+#
+    current_time=$(date +%s.%N)
+    time_diff=$(echo "$current_time - $previous_time" | bc)
     val=$(generate_temp $((i - 1)))
+    timestamp=$(date '+%Y-%m-%d %H:%M:%S')
     printf "CH%02d: %s\n" "$i" "$val" > "$SERIAL_DEV"
+#    printf "Δt=%ss CH%02d: %s\n" "$time_diff" "$i" "$val" > "$SERIAL_DEV"
+    previous_time=$current_time
   done
-  sleep 2
 done
