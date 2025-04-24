@@ -6,9 +6,9 @@ epicsEnvSet("DB_TOP", "$(TOP)/db")
 
 epicsEnvSet("STREAM_PROTOCOL_PATH", "$(DB_TOP)")
 
-epicsEnvSet("PREFIX_MACRO", "jeonglee:")
-epicsEnvSet("DEVICE_MACRO", "training:")
-
+# Define macros for the overall device/IOC
+epicsEnvSet("PREFIX_MACRO", "MYDEMO:")
+epicsEnvSet("DEVICE_MACRO", "TC32:") # Using TC32 for this example
 
 epicsEnvSet("IOCNAME", "training-jeonglee-Demo")
 epicsEnvSet("IOC", "ioctraining-jeonglee-Demo")
