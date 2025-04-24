@@ -6,9 +6,7 @@ include $(TOP)/configure/CONFIG
 #----------------------------------------------------
 # Create and install (or just install) into <top>/db
 # databases, templates, substitutions like this
-#DB += xxx.db
-
-
+DB += TC-32.db
 
 ifneq ($(ASYN),)
 DB_INSTALLS += $(ASYN)/db/asynRecord.db
@@ -31,15 +29,15 @@ DB_INSTALLS += $(AUTOSAVE)/db/save_restoreStatus.db
 endif
 
 DB += $(patsubst ../%, %, $(wildcard ../*.template))
-DB += $(patsubst ../%, %, $(wildcard ../*.db))
-DB += $(patsubst ../%, %, $(wildcard ../*.vdb))
+#DB += $(patsubst ../%, %, $(wildcard ../*.db))
+#DB += $(patsubst ../%, %, $(wildcard ../*.vdb))
 DB += $(patsubst ../%, %, $(wildcard ../*.substitutions))
 
 ##
 DB += $(patsubst ../%, %, $(wildcard ../*.proto))
-DB += $(patsubst ../%, %, $(wildcard ../*.acf))
+#DB += $(patsubst ../%, %, $(wildcard ../*.acf))
 
-REQ += $(patsubst ../%, %, $(wildcard ../*.req))
+#REQ += $(patsubst ../%, %, $(wildcard ../*.req))
 
 #----------------------------------------------------
 # If <anyname>.db template is not named <anyname>*.template add
