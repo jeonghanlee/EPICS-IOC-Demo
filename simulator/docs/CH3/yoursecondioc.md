@@ -133,7 +133,7 @@ Add the following content:
 sendRawQuery {
   ExtraInput = Ignore; # Standard setting for processing record output
   out "%s";            # Format to send: output the string from the record's OUT field
-  in "%(\$1)40c";     # Format to read: read up to 40 chars (%40c) into the PV name passed as argument $1
+  in "%(\$1)40c";      # Format to read: read up to 40 chars (%40c) into the PV name passed as argument $1
 }
 ```
 
