@@ -10,5 +10,4 @@ The ALS-U IOC template structure demonstrated here is based on the general princ
 
 ## CONTENTS
 
-* [A Simple TCP/IP Serial Server](simulator/README.md)
-* [ALS-U EPICS IOC: Testing Device Communication](docs/IOCwithSimulator.md)
+* [Selected EPICS Training](simulator/docs/README.md)
