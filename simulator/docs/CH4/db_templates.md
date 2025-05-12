@@ -1,4 +1,4 @@
-# Database Templates and Substitution
+# 4.5 Database Templates and Substitution
 
 Manually defining records for multiple similar devices or channels, like the 32 channels of our TC-32 temperature simulator, quickly becomes tedious and error-prone. Imagine writing 32 identical `ai` records, only changing a channel number or port name! This is where EPICS database templates (`.template` files) and substitution files (`.substitutions` files) become indispensable tools.
 

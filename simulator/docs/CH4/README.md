@@ -11,3 +11,4 @@ This chapter covers the following topics:
 
 * [Database Templates and Substitution](db_templates.md): Using `.template` and `.substitution` files with `Db/Makefile` for reusable database definitions.
 * [IOC Startup Sequence (`st.cmd` Phases)](stcmd_phases.md): Learning about commands executed before and after `iocInit()`.
+    * [Advanced `iocInit()`](adviocInit.md): Seperated Advanced `iocInit` description.

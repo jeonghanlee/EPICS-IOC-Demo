@@ -1,4 +1,4 @@
-# An Extended TCP/IP Serial Server
+# 4.2 An Extended TCP/IP Serial Server
 
 Building upon the simple echo server concept, this section introduces an enhanced version of the launcher script (`tcpserver.bash`) paired with a more sophisticated advanced connection handler. This combination allows simulating devices that respond specifically to certain commands (rather than just echoing) and provides the flexibility needed for more complex testing scenarios. We will also cover how to easily run multiple simulator instances using GNU Parallel.
 

@@ -1,4 +1,4 @@
-# A Simple TCP/IP Serial Server
+# 3.2 A Simple TCP/IP Serial Server
 The simple TCP server is designed to simulate a basic serial device communicating over TCP/IP. When a client sends a text message (typically ending with a newline) to this server, the server will simply return the exact same message back to the client. This "echo" functionality provides a fundamental interaction model and is incredibly useful for:
 
 * EPICS IOC Development Training: It allows you to develop and test the TCP/IP communication parts of your EPICS IOC (using Asyn and StreamDevice) without needing actual physical hardware.

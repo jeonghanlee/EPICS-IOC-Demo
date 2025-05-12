@@ -1,4 +1,4 @@
-# Your Second ALS-U EPICS IOC
+# 3.1 Your Second ALS-U EPICS IOC
 In the previous lesson, you created a basic IOC structure. Now, we'll add functionality to communicate with external hardware, specifically a device connected via a serial communication (serial over `TCP/IP`). We'll use two most popular EPICS modules:
 
 * Asyn: Provides a generic, layered approach to hardware communication (serial, GPIB, IP, etc.). We'll use it to manage the serial port itself.

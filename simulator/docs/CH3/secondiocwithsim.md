@@ -1,4 +1,4 @@
-# Your Second ALS-U EPICS IOC: Testing Device Communication
+# 3.3 Your Second ALS-U EPICS IOC: Testing Device Communication
 
 We will simulate the serial device using the simulator scripts created in the previous lesson, allowing you to test the IOC without needing physical hardware that speaks TCP/IP. This final step involves running both the IOC and the simulator concurrently and using EPICS Channel Access tools to verify communication.
 

@@ -1,4 +1,4 @@
-# Working with `iocsh`: Script Files and Commands
+# 4.1 Working with `iocsh`: Script Files and Commands
 
 In previous chapters, we configured our IOCs directly within the main startup script, typically `st.cmd`. While functional for simple IOCs, this approach can become difficult to manage as configurations grow more complex or when you need to configure multiple similar devices.
 

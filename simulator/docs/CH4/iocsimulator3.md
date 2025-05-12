@@ -1,4 +1,4 @@
-# Simulating a TC-32 Temperature Monitoring Device
+# 4.4 Simulating a TC-32 Temperature Monitoring Device
 
 This lesson introduces the `tc32_emulator.bash` script, designed to simulate the data output of a simple 32-channel temperature monitoring device. Unlike a server that waits for commands, this emulator continuously pushes simulated data over a network connection, mimicking devices that stream readings. This is valuable for testing EPICS IOCs or other clients that need to parse such a data stream and for how we can practice to build the EPICS record database by using `.template` and `.substitutions` files.
 

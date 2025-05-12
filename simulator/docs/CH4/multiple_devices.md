@@ -1,4 +1,4 @@
-# Managing Multiple Devices using `iocshLoad`
+# 4.3 Managing Multiple Devices using `iocshLoad`
 
 Now that we have learned how to create reusable configuration snippets using `.iocsh files` in [Working with `iocsh`: Script Files and Commands](iocsh_basics.md) and how to run multiple instances of our extended TCP simulator on different ports [Update the TCP Simulator](iocsimulator2.md), we can combine these concepts.
 
