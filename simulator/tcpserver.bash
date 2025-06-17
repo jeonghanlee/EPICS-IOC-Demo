@@ -84,17 +84,18 @@ fi
 
 # --- Launch Server ---
 SERVER_CMD=""
-if command -v tcpsvd > /dev/null 2>&1; then
-    printf "%s Attempting to start using tcpsvd on 127.0.0.1:%s...\n" "$LOG_PREFIX" "$PORT"
-    # tcpsvd: -c 1 limits concurrency, -vvE logs verbosely to stderr
-    SERVER_CMD="tcpsvd -c 1 -vvE 127.0.0.1 \"$PORT\" \"$HANDLER_SCRIPT\""
-elif command -v socat >/dev/null 2>&1; then
-    printf "%s tcpsvd not found. Attempting to start using socat on port %s...\n" "$LOG_PREFIX" "$PORT"
+
+if command -v socat >/dev/null 2>&1; then
+    printf "%s Attempting to start using socat on port %s...\n" "$LOG_PREFIX" "$PORT"
     # socat: TCP-LISTEN, reuseaddr, fork, SYSTEM execution
     # Note the quoting for SYSTEM command with variable path
     SERVER_CMD="socat TCP-LISTEN:${PORT},reuseaddr,fork SYSTEM:'\"$HANDLER_SCRIPT\"'"
+elif command -v tcpsvd > /dev/null 2>&1; then
+    printf "%s Attempting to start using tcpsvd on 127.0.0.1:%s...\n" "$LOG_PREFIX" "$PORT"
+    # tcpsvd: -c 1 limits concurrency, -vvE logs verbosely to stderr
+    SERVER_CMD="tcpsvd -c 1 -vvE 127.0.0.1 \"$PORT\" \"$HANDLER_SCRIPT\""
 else
-    printf "%s Error: Neither tcpsvd nor socat found. Please install ucspi-tcp (ipsvd) or socat.\n" "$LOG_PREFIX"
+    printf "%s Error: Neither socat nor tcpsvd socat found. Please install socat.\n" "$LOG_PREFIX"
     exit 1
 fi
 
