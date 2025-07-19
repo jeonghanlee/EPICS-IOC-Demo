@@ -88,7 +88,8 @@ printf "Serial emulated at: %s\n" "$SERIAL_DEV"
 # Initialize temperature array with random values between 10 and 90
 # $RANDOM generates a new random number in the range [0, 32767]
 for i in $(seq 0 31); do
-  temps[$i]=$(echo "scale=1; 10 + ($RANDOM/32767)*80" | bc)
+  #temps[$i]=$(echo "scale=1; 10 + ($RANDOM/32767)*80" | bc)
+  temps[$i]=$(echo "scale=1; 10+$(($i % 4))*25+($RANDOM/32767)" | bc)
 done
 
 # Function to generate a new temperature or error for a channel
