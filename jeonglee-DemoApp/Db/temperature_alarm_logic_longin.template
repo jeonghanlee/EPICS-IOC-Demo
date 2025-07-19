@@ -1,4 +1,4 @@
-#
+### DB for alarm logic layer(filter) ###
 record(calcout,"$(P)$(R)Logic$(CH)")
 {
     field(DESC, "TC temperature alarm logic $(CH)")
