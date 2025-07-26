@@ -1,0 +1,44 @@
+### DB for alarm logic layer(filter) ###
+record(calcout,"$(P)$(R)Logic$(CH)")
+{
+    field(DESC, "TC temperature alarm logic $(CH)")
+    field(SCAN, "Passive")
+
+    ## Over F number for -> Alarm
+    field(CALC, "((A==E)+(B==E)+(C==E)+(D==E))>=F?F:0")
+
+    field(INPA, "$(P)$(R)CH$(CHA).$(FIELD)")
+    field(INPB, "$(P)$(R)CH$(CHB).$(FIELD)")
+    field(INPC, "$(P)$(R)CH$(CHC).$(FIELD)")
+    field(INPD, "$(P)$(R)CH$(CHD).$(FIELD)")
+    field(INPE, "$(P)$(R)Logic$(CH)FIdx PP")
+    field(INPF, "$(P)$(R)Logic$(CH)Cnt PP")
+    field( OUT, "$(P)$(R)AFilter$(CH).VAL PP")
+    field(DOPT, "Use CALC")
+    field(VAL, "0")
+
+}
+
+record(longin,"$(P)$(R)Logic$(CH)FIdx")
+{
+    field(DESC, "TC alarm logic $(CH) field index value")
+    field(PINI, "YES")
+    field(VAL, "2")
+}
+
+record(longin,"$(P)$(R)Logic$(CH)Cnt")
+{
+    field(DESC, "TC alarm logic $(CH) count")
+    field(PINI, "YES")
+    field(VAL, "2")
+}
+
+record(longin,"$(P)$(R)AFilter$(CH)")
+{
+    field(DESC, "TC alarm CH.($(CHA) $(CHB) $(CHC) $(CHD)) for $(FIELD)")
+    field(SCAN, "Passive")
+    field(HIHI, "1")
+    field(HHSV, "MAJOR")
+    field(VAL, "0")
+}
+

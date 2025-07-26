@@ -1,0 +1,940 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-07-10 22:37:48 by pasdemo-->
+<display version="2.0.0">
+  <name>Display</name>
+  <macros>
+    <P>MYDEMO:</P>
+    <R>TC32:</R>
+    <S>CH</S>
+  </macros>
+  <width>1920</width>
+  <height>1080</height>
+  <background_color>
+    <color name="Grid" red="128" green="128" blue="128">
+    </color>
+  </background_color>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <macros>
+      <P>MYDEMO:</P>
+      <R>TC32:</R>
+    </macros>
+    <text>Temperature Monitor 32 Channels</text>
+    <width>1920</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="28.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update</name>
+    <pv_name>$(P)$(R)$(S)01</pv_name>
+    <x>180</x>
+    <y>260</y>
+    <width>170</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240" alpha="99">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_1</name>
+    <pv_name>$(P)$(R)$(S)02</pv_name>
+    <x>180</x>
+    <y>330</y>
+    <width>170</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240" alpha="99">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_2</name>
+    <pv_name>$(P)$(R)$(S)03</pv_name>
+    <x>180</x>
+    <y>400</y>
+    <width>170</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240" alpha="99">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_3</name>
+    <pv_name>$(P)$(R)$(S)04</pv_name>
+    <x>180</x>
+    <y>470</y>
+    <width>170</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240" alpha="99">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_4</name>
+    <pv_name>$(P)$(R)$(S)05</pv_name>
+    <x>616</x>
+    <y>260</y>
+    <width>170</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240" alpha="99">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_5</name>
+    <pv_name>$(P)$(R)$(S)06</pv_name>
+    <x>616</x>
+    <y>330</y>
+    <width>170</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240" alpha="99">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_6</name>
+    <pv_name>$(P)$(R)$(S)07</pv_name>
+    <x>616</x>
+    <y>400</y>
+    <width>170</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240" alpha="99">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_7</name>
+    <pv_name>$(P)$(R)$(S)08</pv_name>
+    <x>616</x>
+    <y>470</y>
+    <width>170</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240" alpha="99">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_8</name>
+    <pv_name>$(P)$(R)$(S)09</pv_name>
+    <x>1052</x>
+    <y>260</y>
+    <width>170</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240" alpha="99">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_9</name>
+    <pv_name>$(P)$(R)$(S)10</pv_name>
+    <x>1052</x>
+    <y>330</y>
+    <width>170</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240" alpha="99">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_10</name>
+    <pv_name>$(P)$(R)$(S)11</pv_name>
+    <x>1052</x>
+    <y>400</y>
+    <width>170</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240" alpha="99">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_11</name>
+    <pv_name>$(P)$(R)$(S)12</pv_name>
+    <x>1052</x>
+    <y>470</y>
+    <width>170</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240" alpha="99">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_12</name>
+    <pv_name>$(P)$(R)$(S)13</pv_name>
+    <x>1490</x>
+    <y>260</y>
+    <width>170</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240" alpha="99">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_13</name>
+    <pv_name>$(P)$(R)$(S)14</pv_name>
+    <x>1490</x>
+    <y>330</y>
+    <width>170</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240" alpha="99">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_14</name>
+    <pv_name>$(P)$(R)$(S)15</pv_name>
+    <x>1490</x>
+    <y>400</y>
+    <width>170</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240" alpha="99">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_15</name>
+    <pv_name>$(P)$(R)$(S)16</pv_name>
+    <x>1490</x>
+    <y>470</y>
+    <width>170</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240" alpha="99">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_16</name>
+    <pv_name>$(P)$(R)$(S)17</pv_name>
+    <x>180</x>
+    <y>727</y>
+    <width>170</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240" alpha="99">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_17</name>
+    <pv_name>$(P)$(R)$(S)18</pv_name>
+    <x>180</x>
+    <y>797</y>
+    <width>170</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240" alpha="99">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_18</name>
+    <pv_name>$(P)$(R)$(S)19</pv_name>
+    <x>180</x>
+    <y>867</y>
+    <width>170</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240" alpha="99">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_19</name>
+    <pv_name>$(P)$(R)$(S)20</pv_name>
+    <x>180</x>
+    <y>937</y>
+    <width>170</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240" alpha="99">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_20</name>
+    <pv_name>$(P)$(R)$(S)21</pv_name>
+    <x>616</x>
+    <y>717</y>
+    <width>170</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240" alpha="99">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_21</name>
+    <pv_name>$(P)$(R)$(S)22</pv_name>
+    <x>616</x>
+    <y>787</y>
+    <width>170</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240" alpha="99">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_22</name>
+    <pv_name>$(P)$(R)$(S)23</pv_name>
+    <x>616</x>
+    <y>857</y>
+    <width>170</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240" alpha="99">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_23</name>
+    <pv_name>$(P)$(R)$(S)24</pv_name>
+    <x>616</x>
+    <y>927</y>
+    <width>170</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240" alpha="99">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_24</name>
+    <pv_name>$(P)$(R)$(S)25</pv_name>
+    <x>1052</x>
+    <y>707</y>
+    <width>170</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240" alpha="99">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_25</name>
+    <pv_name>$(P)$(R)$(S)26</pv_name>
+    <x>1052</x>
+    <y>777</y>
+    <width>170</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240" alpha="99">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_26</name>
+    <pv_name>$(P)$(R)$(S)27</pv_name>
+    <x>1052</x>
+    <y>847</y>
+    <width>170</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240" alpha="99">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_27</name>
+    <pv_name>$(P)$(R)$(S)28</pv_name>
+    <x>1052</x>
+    <y>917</y>
+    <width>170</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240" alpha="99">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_28</name>
+    <pv_name>$(P)$(R)$(S)29</pv_name>
+    <x>1490</x>
+    <y>697</y>
+    <width>170</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240" alpha="99">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_29</name>
+    <pv_name>$(P)$(R)$(S)30</pv_name>
+    <x>1490</x>
+    <y>767</y>
+    <width>170</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240" alpha="99">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_30</name>
+    <pv_name>$(P)$(R)$(S)31</pv_name>
+    <x>1490</x>
+    <y>847</y>
+    <width>170</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240" alpha="99">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_31</name>
+    <pv_name>$(P)$(R)$(S)32</pv_name>
+    <x>1490</x>
+    <y>917</y>
+    <width>170</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240" alpha="99">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_1</name>
+    <text>Group1</text>
+    <x>180</x>
+    <y>200</y>
+    <width>170</width>
+    <height>40</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_2</name>
+    <text>Group2</text>
+    <x>616</x>
+    <y>200</y>
+    <width>170</width>
+    <height>40</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_3</name>
+    <text>Group3</text>
+    <x>1052</x>
+    <y>200</y>
+    <width>170</width>
+    <height>40</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_4</name>
+    <text>Group4</text>
+    <x>1490</x>
+    <y>200</y>
+    <width>170</width>
+    <height>40</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_5</name>
+    <text>Group1</text>
+    <x>180</x>
+    <y>657</y>
+    <width>170</width>
+    <height>40</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_6</name>
+    <text>Group2</text>
+    <x>616</x>
+    <y>657</y>
+    <width>170</width>
+    <height>40</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_7</name>
+    <text>Group3</text>
+    <x>1052</x>
+    <y>657</y>
+    <width>170</width>
+    <height>40</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_8</name>
+    <text>Group4</text>
+    <x>1490</x>
+    <y>657</y>
+    <width>170</width>
+    <height>40</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_9</name>
+    <text>Area1</text>
+    <x>830</x>
+    <y>110</y>
+    <width>170</width>
+    <height>40</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_10</name>
+    <text>Area2</text>
+    <x>830</x>
+    <y>599</y>
+    <width>170</width>
+    <height>40</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+</display>
