@@ -7,7 +7,7 @@ include $(TOP)/configure/CONFIG
 # Create and install (or just install) into <top>/db
 # databases, templates, substitutions like this
 DB += TC-32.db
-DB += TC-32-alarm.db
+DB += TC-32-alarm1.db
 
 ifneq ($(ASYN),)
 DB_INSTALLS += $(ASYN)/db/asynRecord.db
