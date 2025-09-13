@@ -26,7 +26,7 @@ drvAsynIPPortConfigure("$(ASYN_PORT_NAME)", "$(TARGET_HOST):$(TARGET_PORT)", 0, 
 asynOctetSetInputEos("$(ASYN_PORT_NAME)", 0, "\n")
 asynOctetSetOutputEos("$(ASYN_PORT_NAME)", 0, "\n")
 
-dbLoadRecords("$(DB_TOP)/TC-32-alarm1.db", "P=$(PREFIX_MACRO),R=$(DEVICE_MACRO),PORT=$(ASYN_PORT_NAME)")
+dbLoadRecords("$(DB_TOP)/TC-32.db", "P=$(PREFIX_MACRO),R=$(DEVICE_MACRO),PORT=$(ASYN_PORT_NAME)")
 
 iocInit
 
